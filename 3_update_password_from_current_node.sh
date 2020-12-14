@@ -16,14 +16,9 @@ export BREAKGLASS_USERNAME=$( echo $CONTENT | jq -r  '.breakglass_username' )
 export BREAKGLASS_PASSWORD=$( echo $CONTENT | jq -r  '.breakglass_password' ) 
 echo $BREAKGLASS_USERNAME $BREAKGLASS_PASSWORD $NEWPASS
 
-# echo "$BREAKGLASS_USERNAME:$NEWPASS" | sudo chpasswd
+ echo "$BREAKGLASS_USERNAME:$NEWPASS" | sudo chpasswd
 
 export BREAKGLASS_PASSWORD=$NEWPASS
 
-curl -X PUT -H "X-Vault-Request: true" -H "X-Vault-Namespace: DataCenter1" -H "X-Vault-Token: $(echo $VAULT_TOKEN)" -d '{"data":{ "ipaddress":"'$(echo $IPADDRESS)'","breakglass_username":"'$(echo $BREAKGLASS_USERNAME)'","breakglass_password": "'$(echo $BREAKGLASS_PASSWORD)'","proj_password":"'$(echo $PROJ_PASSWORD)'","proj_username":"'$(echo $PROJ_USERNAME)'","notes":"'$(echo $NOTES)'" },"options":{}}' $(echo $VAULT_ADDR)/v1/servers/data/$(hostname)
+curl -X PUT -H "X-Vault-Request: true" -H "X-Vault-Namespace: DataCenter1" -H "X-Vault-Token: $(echo $VAULT_TOKEN)" -d "{\"data\":{ \"ipaddress\":\"$(echo $IPADDRESS)\",\"breakglass_username\":\"$(echo $BREAKGLASS_USERNAME)\",\"breakglass_password\": \"$(echo $BREAKGLASS_PASSWORD)\",\"proj_password\":\"$(echo $PROJ_PASSWORD)\",\"proj_username\":\"$(echo $PROJ_USERNAME)\",\"notes\":\"$(echo $NOTES)\" },\"options\":{}}" $(echo $VAULT_ADDR)/v1/servers/data/$(hostname)
 
-#curl -X PUT -H "X-Vault-Request: true" -H "X-Vault-Namespace: DataCenter1" -H "X-Vault-Token: $(echo $VAULT_TOKEN)" -d '{"data":{ "ipaddress":"'$(echo $IPADDRESS)'","breakglass_username":"'$(echo $BREAKGLASS_USERNAME)'","breakglass_password": "'$(echo $BREAKGLASS_PASSWORD)'","proj_password":"'$(echo $PROJ_PASSWORD)'","proj_username":"'$(echo $PROJ_USERNAME)'","notes":"'$(echo $NOTES)'" },"options":{}}' $(echo $VAULT_ADDR)/v1/servers/data/$(hostname)
-
-#curl -X PUT -H "X-Vault-Request: true" -H "X-Vault-Namespace: DataCenter1" -H "X-Vault-Token: $(echo $VAULT_TOKEN)" -d '{"data":{ "breakglass_password": "'$(echo $BREAKGLASS_PASSWORD)'"},"options":{}}' $(echo $VAULT_ADDR)/v1/servers/data/$(echo $HOSTNAME)
-
-# curl -X PUT -H "X-Vault-Request: true" -H "X-Vault-Namespace: DataCenter1" -H "X-Vault-Token: s.6diaU1pNFje4N1kv0AiPfz5S" -d '{"data":{ "ipaddress":"192.168.1.152","breakglass_username":"test","breakglass_password": "f41c39cc4448ee4eb931fea","proj_password":"Welcome1","proj_username":"test","notes":"this is my desktop" },"options":{}}' https://vault.eu-guystack.original.aws.hashidemos.io:8200/v1/servers/data/pop-os
