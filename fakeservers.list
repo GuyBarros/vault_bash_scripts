@@ -1,0 +1,13 @@
+HOSTNAME;IPADDRESS;PROJ_USERNAME;PROJ_PASSWORD;BREAKGLASS_USERNAME;BREAKGLASS_PASSWORD;NOTES
+server1;10.0.0.1;projadm1;hunter2;root;swordfish;this is an example server
+server2;10.0.0.2;projadm2;hunter2;root;swordfish;this is an example server
+server3;10.0.0.3;projadm3;hunter2;root;swordfish;this is an example server
+server4;10.0.0.4;projadm4;hunter2;root;swordfish;this is an example server
+server5;10.0.0.5;projadm5;hunter2;root;swordfish;this is an example server
+server6;10.0.0.6;projadm6;hunter2;root;swordfish;this is an example server
+server7;10.0.0.7;projadm7;hunter2;root;swordfish;this is an example server
+server8;10.0.0.8;projadm8;hunter2;root;swordfish;this is an example server
+server9;10.0.0.9;projadm9;hunter2;root;swordfish;this is an example server
+server10;10.0.0.10;projadm9;hunter2;root;swordfish;this is an example server
+
+
